@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -29,36 +31,41 @@ const LoginForm = () => {
   if (user) {
     return <Redirect to='/' />;
   }
-
   return (
-    <form onSubmit={onLogin}>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
-      </div>
-      <div>
-        <label htmlFor='email'>Email</label>
-        <input
-          name='email'
-          type='text'
-          placeholder='Email'
-          value={email}
-          onChange={updateEmail}
-        />
-      </div>
-      <div>
-        <label htmlFor='password'>Password</label>
-        <input
-          name='password'
-          type='password'
-          placeholder='Password'
-          value={password}
-          onChange={updatePassword}
-        />
-        <button type='submit'>Login</button>
-      </div>
-    </form>
+    <div className='SighnUpandLoginContaier'>
+      <form onSubmit={onLogin} className='SighnUpandLogin'>
+        <div>
+          {errors.length ? <span className='errors'>Password or Email Incorrect</span> : <></>}
+        </div>
+        <div>
+          <div>
+            <TextField
+              className='SighninAndLoginInput'
+              id="demo-helper-text-misaligned-no-helper"
+              name='email'
+              type='text'
+              placeholder='Email'
+              value={email}
+              onChange={updateEmail}
+              label="Email" />
+          </div>
+        </div>
+        <div>
+          <div>
+            <TextField
+              className='SighninAndLoginInput'
+              id="demo-helper-text-misaligned-no-helper"
+              name='password'
+              type='password'
+              placeholder='Password'
+              value={password}
+              onChange={updatePassword}
+              label="Password" />
+          </div>
+        </div>
+        <Button variant="contained" type='submit'>Login</Button>
+      </form>
+    </div>
   );
 };
 
