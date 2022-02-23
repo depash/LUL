@@ -3,7 +3,71 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
 import Button from '@mui/material/Button';
+import { alpha, styled } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
+import useMediaQuery from '@mui/material/useMediaQuery';
+
+const CssTextField = styled(TextField)({
+  '& label.Mui-focused': {
+    color: 'blue',
+  },
+  '& label.Mui-focused': {
+    color: '#c28f2c',
+  },
+  '& label': {
+    color: '#c28f2c',
+    fontWeight: 'bold',
+  },
+  backgroundColor: 'white',
+  borderRadius: '5px',
+  '& .MuiInput-underline:after': {
+    borderBottomColor: 'green',
+  },
+  '& .MuiOutlinedInput-root': {
+    '& fieldset': {
+      borderColor: 'white',
+    },
+    '&:hover fieldset': {
+      borderColor: '#c28f2c',
+    },
+    '&.Mui-focused fieldset': {
+      borderColor: '#c28f2c',
+    },
+  },
+});
+const PhoneCssTextField = styled(TextField)({
+  '& label.Mui-focused': {
+    color: 'blue',
+  },
+  '& label.Mui-focused': {
+    color: '#c28f2c',
+  },
+  '& label': {
+    color: '#c28f2c',
+    fontWeight: 'bold',
+    fontSize: '50px'
+  },
+  backgroundColor: 'white',
+  borderRadius: '5px',
+  width: '725px',
+  height: '175px',
+  '& .MuiInput-underline:after': {
+    borderBottomColor: 'green',
+  },
+  '& .MuiOutlinedInput-root': {
+    height: '100%',
+    fontSize: '50px',
+    '& fieldset': {
+      borderColor: 'white',
+    },
+    '&:hover fieldset': {
+      borderColor: '#c28f2c',
+    },
+    '&.Mui-focused fieldset': {
+      borderColor: '#c28f2c',
+    },
+  },
+});
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -11,7 +75,7 @@ const LoginForm = () => {
   const [password, setPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
-
+  const matches = useMediaQuery('(min-width:650px) and (-webkit-min-device-pixel-ratio: 2)');
   const onLogin = async (e) => {
     e.preventDefault();
     const data = await dispatch(login(email, password));
@@ -33,34 +97,54 @@ const LoginForm = () => {
   }
   return (
     <div className='SighnUpandLoginContaier'>
-      <form onSubmit={onLogin} className='SighnUpandLogin'>
+      <form onSubmit={onLogin} id='Login'>
         <div>
           {errors.length ? <span className='errors'>Password or Email Incorrect</span> : <></>}
         </div>
         <div>
           <div>
-            <TextField
-              className='SighninAndLoginInput'
-              id="demo-helper-text-misaligned-no-helper"
-              name='email'
-              type='text'
-              placeholder='Email'
-              value={email}
-              onChange={updateEmail}
-              label="Email" />
+            {matches ?
+              <PhoneCssTextField
+                className='SighninAndLoginInput'
+                id="demo-helper-text-misaligned-no-helper"
+                name='email'
+                type='text'
+                placeholder='Email'
+                value={email}
+                onChange={updateEmail}
+                label="Email" />
+              : <CssTextField
+                className='SighninAndLoginInput'
+                id="demo-helper-text-misaligned-no-helper"
+                name='email'
+                type='text'
+                placeholder='Email'
+                value={email}
+                onChange={updateEmail}
+                label="Email" />}
           </div>
         </div>
         <div>
           <div>
-            <TextField
-              className='SighninAndLoginInput'
-              id="demo-helper-text-misaligned-no-helper"
-              name='password'
-              type='password'
-              placeholder='Password'
-              value={password}
-              onChange={updatePassword}
-              label="Password" />
+            {matches ?
+              <PhoneCssTextField
+                className='SighninAndLoginInput'
+                id="demo-helper-text-misaligned-no-helper"
+                name='password'
+                type='password'
+                placeholder='Password'
+                value={password}
+                onChange={updatePassword}
+                label="Password" />
+              : <CssTextField
+                className='SighninAndLoginInput'
+                id="demo-helper-text-misaligned-no-helper"
+                name='password'
+                type='password'
+                placeholder='Password'
+                value={password}
+                onChange={updatePassword}
+                label="Password" />}
           </div>
         </div>
         <Button variant="contained" type='submit'>Login</Button>
