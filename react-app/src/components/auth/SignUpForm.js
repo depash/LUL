@@ -5,11 +5,12 @@ import { signUp } from '../../store/session';
 import { alpha, styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
+import OutlinedInput from '@mui/material/OutlinedInput';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-const CssTextField = styled(TextField)({
+const CssTextField = styled(OutlinedInput)({
   '& label.Mui-focused': {
-    color: 'blue',
+    display: 'none'
   },
   '& label.Mui-focused': {
     color: '#c28f2c',
@@ -35,8 +36,7 @@ const CssTextField = styled(TextField)({
     },
   },
 });
-
-const PhoneCssTextField = styled(TextField)({
+const PhoneCssTextField = styled(OutlinedInput)({
   '& label.Mui-focused': {
     color: 'blue',
   },
@@ -51,24 +51,13 @@ const PhoneCssTextField = styled(TextField)({
   backgroundColor: 'white',
   borderRadius: '5px',
   width: '725px',
-  height: '175px',
+  height: '155px',
+  fontSize: '50px',
   '& .MuiInput-underline:after': {
     borderBottomColor: 'green',
   },
-  '& .MuiOutlinedInput-root': {
-    height: '100%',
-    fontSize: '50px',
-    '& fieldset': {
-      borderColor: 'white',
-    },
-    '&:hover fieldset': {
-      borderColor: '#c28f2c',
-    },
-    '&.Mui-focused fieldset': {
-      borderColor: '#c28f2c',
-    },
-  },
 });
+
 const SignUpForm = () => {
   const [usererror, setuserErrors] = useState([]);
   const [emailerror, setemailErrors] = useState([]);
@@ -138,14 +127,14 @@ const SignUpForm = () => {
                 onChange={updateUsername}
                 value={username}
                 name='username'
-                label="Username" />
+                placeholder='Username' />
               : <CssTextField
                 className='SighninAndLoginInput'
                 id="demo-helper-text-misaligned-no-helper"
                 onChange={updateUsername}
                 value={username}
                 name='username'
-                label="Username" />}
+                placeholder='Username' />}
           </div>
         </div>
         <div className='sighnUpdivs'>
@@ -158,14 +147,14 @@ const SignUpForm = () => {
                 onChange={updateEmail}
                 value={email}
                 name='email'
-                label="Email" />
+                placeholder='Email' />
               : <CssTextField
                 className='SighninAndLoginInput'
                 id="demo-helper-text-misaligned-no-helper"
                 onChange={updateEmail}
                 value={email}
                 name='email'
-                label="Email" />}
+                placeholder='Email' />}
           </div>
         </div>
         <div className='sighnUpdivs'>
@@ -179,7 +168,7 @@ const SignUpForm = () => {
                 value={password}
                 name='password'
                 type='password'
-                label="Password" />
+                placeholder='Password' />
               : <CssTextField
                 className='SighninAndLoginInput'
                 id="demo-helper-text-misaligned-no-helper"
@@ -187,7 +176,7 @@ const SignUpForm = () => {
                 value={password}
                 name='password'
                 type='password'
-                label="Password" />}
+                placeholder='Password' />}
 
           </div>
         </div>
@@ -201,7 +190,7 @@ const SignUpForm = () => {
                 value={repeatPassword}
                 name='repeat_password'
                 type='password'
-                label="Repeat Password" />
+                placeholder='Repeat Password' />
               : <CssTextField
                 className='SighninAndLoginInput'
                 id="demo-helper-text-misaligned-no-helper"
@@ -209,7 +198,7 @@ const SignUpForm = () => {
                 value={repeatPassword}
                 name='repeat_password'
                 type='password'
-                label="Repeat Password" />}
+                placeholder='Repeat Password' />}
           </div>
         </div>
         <Button variant="contained" type='submit'>Sign Up</Button>

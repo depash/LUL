@@ -41,6 +41,9 @@ body{
 .errors{
     color: red;
 }
+.css-173wfxe{
+    display: none;
+}
 @media only screen
   and (max-device-width: 650px)
   and (-webkit-min-device-pixel-ratio: 2) {

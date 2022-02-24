@@ -5,11 +5,12 @@ import { login } from '../../store/session';
 import Button from '@mui/material/Button';
 import { alpha, styled } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
+import OutlinedInput from '@mui/material/OutlinedInput';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-const CssTextField = styled(TextField)({
+const CssTextField = styled(OutlinedInput)({
   '& label.Mui-focused': {
-    color: 'blue',
+    display: 'none'
   },
   '& label.Mui-focused': {
     color: '#c28f2c',
@@ -35,7 +36,7 @@ const CssTextField = styled(TextField)({
     },
   },
 });
-const PhoneCssTextField = styled(TextField)({
+const PhoneCssTextField = styled(OutlinedInput)({
   '& label.Mui-focused': {
     color: 'blue',
   },
@@ -51,21 +52,9 @@ const PhoneCssTextField = styled(TextField)({
   borderRadius: '5px',
   width: '725px',
   height: '175px',
+  fontSize: '50px',
   '& .MuiInput-underline:after': {
     borderBottomColor: 'green',
-  },
-  '& .MuiOutlinedInput-root': {
-    height: '100%',
-    fontSize: '50px',
-    '& fieldset': {
-      borderColor: 'white',
-    },
-    '&:hover fieldset': {
-      borderColor: '#c28f2c',
-    },
-    '&.Mui-focused fieldset': {
-      borderColor: '#c28f2c',
-    },
   },
 });
 
@@ -106,22 +95,20 @@ const LoginForm = () => {
             {matches ?
               <PhoneCssTextField
                 className='SighninAndLoginInput'
-                id="demo-helper-text-misaligned-no-helper"
                 name='email'
                 type='text'
                 placeholder='Email'
                 value={email}
                 onChange={updateEmail}
-                label="Email" />
+              />
               : <CssTextField
                 className='SighninAndLoginInput'
-                id="demo-helper-text-misaligned-no-helper"
                 name='email'
                 type='text'
                 placeholder='Email'
                 value={email}
                 onChange={updateEmail}
-                label="Email" />}
+              />}
           </div>
         </div>
         <div>
@@ -135,7 +122,7 @@ const LoginForm = () => {
                 placeholder='Password'
                 value={password}
                 onChange={updatePassword}
-                label="Password" />
+              />
               : <CssTextField
                 className='SighninAndLoginInput'
                 id="demo-helper-text-misaligned-no-helper"
@@ -144,7 +131,7 @@ const LoginForm = () => {
                 placeholder='Password'
                 value={password}
                 onChange={updatePassword}
-                label="Password" />}
+              />}
           </div>
         </div>
         <Button variant="contained" type='submit'>Login</Button>
