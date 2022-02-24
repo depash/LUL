@@ -56,6 +56,9 @@ const PhoneCssTextField = styled(OutlinedInput)({
   '& .MuiInput-underline:after': {
     borderBottomColor: 'green',
   },
+  '& .MuiOutlinedInput-input': {
+    height: '80%'
+  }
 });
 
 const LoginForm = () => {

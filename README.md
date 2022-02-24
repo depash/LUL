@@ -88,20 +88,20 @@ hurt to run it again.
    This will build the Dockerfile and push the image to your heroku container registry.
 
    ```bash
-   heroku container:push web -a {NAME_OF_HEROKU_APP}
+   heroku container:push web -a lul-stats
    ```
 
 9. Release your docker container to heroku
 
       ```bash
-      heroku container:release web -a {NAME_OF_HEROKU_APP}
+      heroku container:release web -a lul-stats
       ```
 
 10. set up your database
 
       ```bash
-      heroku run -a {NAME_OF_HEROKU_APP} flask db upgrade
-      heroku run -a {NAME_OF_HEROKU_APP} flask seed all
+      heroku run -a lul-stats flask db upgrade
+      heroku run -a lul-stats flask seed all
       ```
 
 11. Under Settings find "Config Vars" and add any additional/secret .env

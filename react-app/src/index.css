@@ -41,9 +41,7 @@ body{
 .errors{
     color: red;
 }
-.css-173wfxe{
-    display: none;
-}
+
 @media only screen
   and (max-device-width: 650px)
   and (-webkit-min-device-pixel-ratio: 2) {
@@ -73,11 +71,15 @@ body{
         width: 450px;
         height: 100px;
         font-size: 50px;
+        border-radius: 10px;
+        margin-top: 10px;
     }
     #SighnUp > button{
         width: 450px;
         height: 100px;
         font-size: 50px;
+        border-radius: 10px;
+        margin-top: 10px;
     }
     .errors{
         font-size: 50px;
