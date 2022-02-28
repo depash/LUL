@@ -1,0 +1,9 @@
+#homePageContainer{
+    height: calc(100vh - 50px);
+    width: 100vw;
+    background-color: #5383e8;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

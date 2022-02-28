@@ -1,17 +1,24 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import { logout } from '../store/session';
+import { login } from '../store/session';
 import './NavBar.css'
 import Logo from '../images/LoL_icon.svg.png'
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user)
   const dispatch = useDispatch()
+  const history = useHistory()
   const [dropdown, setDropdown] = useState(false);
   const onLogout = async (e) => {
     await dispatch(logout());
     setDropdown(false)
+  };
+  const DemoButton = () => {
+    dispatch(login('demo@aa.io', 'password'));
+    setDropdown(false)
+    return history.push(`/`);
   };
   let NavButtons;
   if (sessionUser) {
@@ -24,7 +31,7 @@ const NavBar = () => {
   } else {
     NavButtons = (
       <div className='RightSideButtons'>
-        <NavLink to='/' exact={true} activeClassName='active'>
+        <NavLink to='/' exact={true} onClick={() => { DemoButton() }} activeClassName='active'>
           Demo
         </NavLink>
         <NavLink to='/login' exact={true} activeClassName='active'>
@@ -51,7 +58,7 @@ const NavBar = () => {
         <div id='Dropdown'>
           {!sessionUser ?
             <>
-              <NavLink to='/' exact={true} onClick={() => { setDropdown(false) }} activeClassName='active'>
+              <NavLink to='/' exact={true} onClick={() => { DemoButton() }} activeClassName='active'>
                 Demo
               </NavLink>
               <NavLink to='/login' exact={true} onClick={() => { setDropdown(false) }} activeClassName='active'>
