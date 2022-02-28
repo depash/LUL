@@ -2,29 +2,24 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { alpha, styled } from '@mui/material/styles';
 import OutlinedInput from '@mui/material/OutlinedInput';
+import TextField from '@mui/material/TextField';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import './HomePage.css'
 
-const CssTextField = styled(OutlinedInput)({
+
+const CssTextField = styled(TextField)({
     '& label.Mui-focused': {
-        display: 'none'
+        color: 'green',
     },
-    '& label.Mui-focused': {
-        color: '#c28f2c',
-    },
-    '& label': {
-        color: '#c28f2c',
-        fontWeight: 'bold',
-    },
-    backgroundColor: 'white',
-    borderRadius: '5px',
     '& .MuiInput-underline:after': {
         borderBottomColor: 'green',
     },
-    width: '725px',
-    height: '70px',
     fontSize: '20px',
+    backgroundColor: 'white',
+    borderRadius: '5px',
     '& .MuiOutlinedInput-root': {
+        width: '725px',
+        height: '70px',
         '& fieldset': {
             borderColor: 'white',
         },
@@ -76,18 +71,23 @@ const HomePage = () => {
                         className='SighninAndLoginInput'
                         name='search'
                         type='text'
-                        placeholder='Summuner Name'
+                        placeholder='Search Summoner'
                         value={search}
                         onChange={updateSearch}
                     />
-                    : <CssTextField
-                        className='SighninAndLoginInput'
-                        name='search'
-                        type='text'
-                        placeholder='Summuner Name'
-                        value={search}
-                        onChange={updateSearch}
-                    />}
+                    :
+                    <div>
+                        <CssTextField
+                            className='SighninAndLoginInput'
+                            name='search'
+                            type='text'
+                            placeholder='Search Summoner'
+                            value={search}
+                            onChange={updateSearch}
+                        />
+                        <h1>NA</h1>
+                    </div>
+                }
             </form>
         </div>
     );

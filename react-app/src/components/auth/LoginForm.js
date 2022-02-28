@@ -8,22 +8,15 @@ import TextField from '@mui/material/TextField';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-const CssTextField = styled(OutlinedInput)({
+const CssTextField = styled(TextField)({
   '& label.Mui-focused': {
-    display: 'none'
+    color: 'green',
   },
-  '& label.Mui-focused': {
-    color: '#c28f2c',
-  },
-  '& label': {
-    color: '#c28f2c',
-    fontWeight: 'bold',
-  },
-  backgroundColor: 'white',
-  borderRadius: '5px',
   '& .MuiInput-underline:after': {
     borderBottomColor: 'green',
   },
+  backgroundColor: 'white',
+  borderRadius: '5px',
   '& .MuiOutlinedInput-root': {
     '& fieldset': {
       borderColor: 'white',
@@ -36,29 +29,38 @@ const CssTextField = styled(OutlinedInput)({
     },
   },
 });
-const PhoneCssTextField = styled(OutlinedInput)({
-  '& label.Mui-focused': {
-    color: 'blue',
-  },
-  '& label.Mui-focused': {
-    color: '#c28f2c',
-  },
+const PhoneCssTextField = styled(TextField)({
   '& label': {
     color: '#c28f2c',
     fontWeight: 'bold',
     fontSize: '50px'
   },
-  backgroundColor: 'white',
-  borderRadius: '5px',
-  width: '725px',
-  height: '175px',
-  fontSize: '50px',
+  zIndex: '0',
+  '& .MuiOutlinedInput-input': {
+    height: '80%'
+  },
+  '& label.Mui-focused': {
+    color: 'green',
+  },
   '& .MuiInput-underline:after': {
     borderBottomColor: 'green',
   },
-  '& .MuiOutlinedInput-input': {
-    height: '80%'
-  }
+  backgroundColor: 'white',
+  borderRadius: '10px',
+  '& .MuiOutlinedInput-root': {
+    width: '725px',
+    height: '175px',
+    fontSize: '50px',
+    '& fieldset': {
+      borderColor: 'white',
+    },
+    '&:hover fieldset': {
+      borderColor: '#c28f2c',
+    },
+    '&.Mui-focused fieldset': {
+      borderColor: '#c28f2c',
+    },
+  },
 });
 
 const LoginForm = () => {
