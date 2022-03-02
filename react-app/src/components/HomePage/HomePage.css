@@ -6,4 +6,28 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+}
+.searchAndRegionSelectContaienr{
+    display: flex;
+    background-color: white;
+    padding: 3px;
+    border-radius: 5px;
+    align-items: center;
+}
+#regions{
+    border: none;
+    background-color: blue;
+}
+#formContainer{
+    display: flex;
+    height: 70%;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: center;
+}
+#imgContainer{
+    display: flex;
+    height: 30%;
+    width: 100%;
 }
