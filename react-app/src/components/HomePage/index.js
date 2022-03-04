@@ -134,13 +134,13 @@ const StyledListbox = styled('ul')(
     box-sizing: border-box;
     padding: 5px;
     margin: 10px 0;
-    min-width: 320px;
-    max-height: 400px;
+    width: 250px;
+    height: 300px;
     background: #092c3a;
     border: 1px solid #c28f2a;
     border-radius: 0.75em;
     color: white;
-    overflow: auto;
+    overflow-y: scroll;
     outline: 0px;
     `,
 );
@@ -354,10 +354,12 @@ const countries = [
         suggested: true,
     },
     { code: 'TR', label: 'Turkey', phone: '90' },
+    { code: 'RU', label: 'Russian Federation', phone: '7' },
 ]
 const HomePage = () => {
     const dispatch = useDispatch()
     const [search, setSearch] = useState('');
+    const [value, setValue] = useState('NA');
     const matches = useMediaQuery('(min-width:650px) and (-webkit-min-device-pixel-ratio: 2)');
     const updateSearch = (e) => {
         setSearch(e.target.value);
@@ -408,7 +410,7 @@ const HomePage = () => {
                                 onChange={updateSearch}
                             >
                             </CssTextField>
-                            <CustomSelect>
+                            <CustomSelect value={value} onChange={setValue}>
                                 {countries.map((c) => (
                                     <StyledOption key={c.code} value={c.code}>
                                         {c.label && <img
