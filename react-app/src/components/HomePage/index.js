@@ -369,9 +369,6 @@ const HomePage = () => {
     const submitForm = async (e) => {
         e.preventDefault();
         const data = await dispatch(GetStats(search, value));
-        if (data) {
-            setErrors(data);
-        }
     };
     return (
         <div id='homePageContainer'>

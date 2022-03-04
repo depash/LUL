@@ -7,12 +7,18 @@ const setStats = (stats) => ({
 
 const initialState = { stats: null };
 
-export const GetStats = () => async (dispatch) => {
-    const response = await fetch('/api/auth/', {
+export const GetStats = (name, region) => async (dispatch) => {
+    const response = await fetch('/api/stats', {
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json'
-        }
+        },
+        body: JSON.stringify({
+            name,
+            region
+        })
     });
+
     if (response.ok) {
         const data = await response.json();
         if (data.errors) {
