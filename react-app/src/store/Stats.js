@@ -18,7 +18,6 @@ export const GetStats = () => async (dispatch) => {
         if (data.errors) {
             return;
         }
-
         dispatch(setStats(data));
     }
 }

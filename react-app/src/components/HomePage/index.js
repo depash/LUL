@@ -9,6 +9,7 @@ import SelectUnstyled, { selectUnstyledClasses } from '@mui/base/SelectUnstyled'
 import OptionUnstyled, { optionUnstyledClasses } from '@mui/base/OptionUnstyled';
 import { PopperUnstyled } from '@mui/base';
 import './HomePage.css'
+import { GetStats } from '../../store/Stats';
 
 
 const CssTextField = styled(TextField)({
@@ -364,6 +365,14 @@ const HomePage = () => {
     const updateSearch = (e) => {
         setSearch(e.target.value);
     };
+
+    const submitForm = async (e) => {
+        e.preventDefault();
+        const data = await dispatch(GetStats(search, value));
+        if (data) {
+            setErrors(data);
+        }
+    };
     return (
         <div id='homePageContainer'>
             <div id='imgContainer'>
@@ -372,7 +381,7 @@ const HomePage = () => {
                 </div>
             </div>
             <div id='formContainer'>
-                <form>
+                <form onSubmit={submitForm}>
                     {matches ?
                         <div className='searchAndRegionSelectContaienr'>
                             <PhoneCssTextField
