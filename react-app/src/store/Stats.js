@@ -8,7 +8,7 @@ const setStats = (stats) => ({
 const initialState = { stats: null };
 
 export const GetStats = (name, region) => async (dispatch) => {
-    const response = await fetch('/api/stats', {
+    const response = await fetch('/api/stats/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -21,18 +21,24 @@ export const GetStats = (name, region) => async (dispatch) => {
 
     if (response.ok) {
         const data = await response.json();
-        if (data.errors) {
-            return;
-        }
         dispatch(setStats(data));
+    }
+    else if (response.status < 500) {
+        const data = await response.json();
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return ['An error occurred. Please try again.']
     }
 }
 
-export default function reducer(state = initialState, action) {
+const statsReducer = function reducer(state = initialState, action) {
     switch (action.type) {
         case SET_STATS:
-            return { stats: action.payload }
+            return action.payload
         default:
             return state;
     }
 }
+export default statsReducer

@@ -21,6 +21,10 @@ const CssTextField = styled(TextField)({
     },
     backgroundColor: 'white',
     // borderBottomLeftRadius: '5px',
+    // height: 70%
+    '& .MuiOutlinedInput-input': {
+        height: '70%'
+    },
     '& .MuiOutlinedInput-root': {
         fontSize: '30px',
         width: '625px',
@@ -329,38 +333,40 @@ CustomSelect.propTypes = {
 
 const countries = [
     {
-        code: 'NA',
+        code: 'NA', value: 'NA1',
     },
     {
-        code: 'EUN',
+        code: 'EUNE', value: 'EUN1',
     },
     {
-        code: 'EUW',
+        code: 'EUW', value: 'EUW1',
     },
     {
-        code: 'LAS',
+        code: 'LAS', value: 'LA2',
     },
     {
-        code: 'LAN',
+        code: 'LAN', value: 'LA1',
     },
     {
-        code: 'OCE',
+        code: 'OCE', value: 'OC1',
     },
-    { code: 'BR', label: 'Brazil', phone: '55' },
-    { code: 'KR', label: 'Korea, Republic of', phone: '82' },
+    { code: 'BR', label: 'Brazil', phone: '55', value: 'BR1', },
+    { code: 'KR', label: 'Korea, Republic of', phone: '82', value: 'KR', },
     {
         code: 'JP',
         label: 'Japan',
         phone: '81',
         suggested: true,
+        value: 'JP1',
     },
-    { code: 'TR', label: 'Turkey', phone: '90' },
-    { code: 'RU', label: 'Russian Federation', phone: '7' },
+    { code: 'TR', label: 'Turkey', phone: '90', value: 'TR1', },
+    { code: 'RU', label: 'Russian Federation', phone: '7', value: 'RU', },
 ]
 const HomePage = () => {
     const dispatch = useDispatch()
     const [search, setSearch] = useState('');
-    const [value, setValue] = useState('NA');
+    const [value, setValue] = useState('NA1');
+    const [error, setError] = useState(false);
     const matches = useMediaQuery('(min-width:650px) and (-webkit-min-device-pixel-ratio: 2)');
     const updateSearch = (e) => {
         setSearch(e.target.value);
@@ -369,6 +375,12 @@ const HomePage = () => {
     const submitForm = async (e) => {
         e.preventDefault();
         const data = await dispatch(GetStats(search, value));
+        if (data) {
+            setError(true)
+        }
+        else {
+            setError(false)
+        }
     };
     return (
         <div id='homePageContainer'>
@@ -380,7 +392,7 @@ const HomePage = () => {
             <div id='formContainer'>
                 <form onSubmit={submitForm}>
                     {matches ?
-                        <div className='searchAndRegionSelectContaienr'>
+                        <div className={error ? 'searchAndRegionSelectContaienrError' : 'searchAndRegionSelectContaienr'}>
                             <PhoneCssTextField
                                 className='SighninAndLoginInput'
                                 name='search'
@@ -392,7 +404,7 @@ const HomePage = () => {
                             </PhoneCssTextField>
                             <CustomSelectPhone>
                                 {countries.map((c) => (
-                                    <StyledOptionPhone key={c.code} value={c.code}>
+                                    <StyledOptionPhone key={c.code} value={c.value}>
                                         {c.label && <img
                                             loading="lazy"
                                             width="20"
@@ -406,7 +418,7 @@ const HomePage = () => {
                             </CustomSelectPhone>
                         </div>
                         :
-                        <div className='searchAndRegionSelectContaienr'>
+                        <div className={error ? 'searchAndRegionSelectContaienrError' : 'searchAndRegionSelectContaienr'}>
                             <CssTextField
                                 className='SighninAndLoginInput'
                                 name='search'
@@ -418,7 +430,7 @@ const HomePage = () => {
                             </CssTextField>
                             <CustomSelect value={value} onChange={setValue}>
                                 {countries.map((c) => (
-                                    <StyledOption key={c.code} value={c.code}>
+                                    <StyledOption key={c.code} value={c.value}>
                                         {c.label && <img
                                             loading="lazy"
                                             width="20"
