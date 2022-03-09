@@ -17,13 +17,13 @@ def getting_stats():
     region = data['region']
     name = data['name']
     url = f'https://{region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/{name}'
-    user = requests.get(url,
-                        headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 OPR/84.0.4316.21",
-                                 "Accept-Language": "en-US,en;q=0.9",
-                                 "Accept-Charset": "application/x-www-form-urlencoded; charset=UTF-8",
-                                 "Origin": "https://developer.riotgames.com",
-                                 "X-Riot-Token": key})
-    if user.status_code != 200:
+    user_raw = requests.get(url,
+                            headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 OPR/84.0.4316.21",
+                                     "Accept-Language": "en-US,en;q=0.9",
+                                     "Accept-Charset": "application/x-www-form-urlencoded; charset=UTF-8",
+                                     "Origin": "https://developer.riotgames.com",
+                                     "X-Riot-Token": key})
+    if user_raw.status_code != 200:
         return {'errors': 'error message'}, 401
     else:
         region_2 = None
@@ -33,15 +33,25 @@ def getting_stats():
             region_2 = 'europe'
         if region == 'RU' or region == 'TR1' or region == 'JP1' or region == 'KR':
             region_2 = 'asia'
-        formated_user = user.json()
+        formated_user = user_raw.json()
         puuid = formated_user['puuid']
         url = f'https://{region_2}.api.riotgames.com/lol/match/v5/matches/by-puuid/{puuid}/ids?type=normal&start=0&count=10'
-        all_matches = requests.get(url,
-                                   headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 OPR/84.0.4316.21",
-                                            "Accept-Language": "en-US,en;q=0.9",
-                                            "Accept-Charset": "application/x-www-form-urlencoded; charset=UTF-8",
-                                            "Origin": "https://developer.riotgames.com",
-                                            "X-Riot-Token": key})
-        formated_all_matches = all_matches.json()
+        all_matches_raw = requests.get(url,
+                                       headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 OPR/84.0.4316.21",
+                                                "Accept-Language": "en-US,en;q=0.9",
+                                                "Accept-Charset": "application/x-www-form-urlencoded; charset=UTF-8",
+                                                "Origin": "https://developer.riotgames.com",
+                                                "X-Riot-Token": key})
+        formated_all_matches = all_matches_raw.json()
+        match_data = []
+        for match in formated_all_matches:
+            url = f'https://{region_2}.api.riotgames.com/lol/match/v5/matches/{match}'
+            matche_data_raw = requests.get(url,
+                                           headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 OPR/84.0.4316.21",
+                                                    "Accept-Language": "en-US,en;q=0.9",
+                                                    "Accept-Charset": "application/x-www-form-urlencoded; charset=UTF-8",
+                                                    "Origin": "https://developer.riotgames.com",
+                                                    "X-Riot-Token": key})
+            match_data_json = matche_data_raw.json()
 
-        return {'user': formated_user, 'matches': formated_all_matches}
+        return {'user': formated_user, 'matches': match_data}
