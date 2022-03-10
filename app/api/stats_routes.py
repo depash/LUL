@@ -1,3 +1,5 @@
+from email.utils import formatdate
+from sqlite3 import Timestamp
 from urllib import response
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
@@ -5,6 +7,9 @@ from sqlalchemy import null
 from app.models import User
 import os
 import requests
+from datetime import date
+from datetime import timedelta
+from datetime import datetime
 
 stats_routes = Blueprint('stats', __name__)
 
@@ -53,5 +58,13 @@ def getting_stats():
                                                     "Origin": "https://developer.riotgames.com",
                                                     "X-Riot-Token": key})
             match_data_json = matche_data_raw.json()
-
+            # 3600
+            info = match_data_json['info']
+            participants = info['participants']
+            formated_time = str(timedelta(
+                seconds=info['gameDuration']))
+            timestamp = info['gameCreation']
+            match_data.append({'gameDuration': formated_time,
+                              'gameMode': info['gameMode'],
+                               'gameCreaton': timestamp})
         return {'user': formated_user, 'matches': match_data}
