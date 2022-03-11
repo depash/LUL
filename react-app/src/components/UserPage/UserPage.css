@@ -1,3 +1,16 @@
 #userPageContainer{
-
+    height: calc(100vh - 50px);
+    width: 100vw;
+    background-color: #5383e8;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#profileIcon{
+    width: 100px;
+    height: 100px;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
