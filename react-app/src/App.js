@@ -7,6 +7,7 @@ import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import { authenticate } from './store/session';
 import HomePage from './components/HomePage';
+import UserPage from './components/UserPage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -27,14 +28,17 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
-        <Route path='/login' exact={true}>
+        <Route path='/login' >
           <LoginForm />
         </Route>
-        <Route path='/sign-up' exact={true}>
+        <Route path='/sign-up' >
           <SignUpForm />
         </Route>
         <ProtectedRoute path='/' exact={true} >
           <HomePage />
+        </ProtectedRoute>
+        <ProtectedRoute path='/:userName' exact={true} >
+          <UserPage />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

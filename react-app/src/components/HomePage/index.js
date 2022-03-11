@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { alpha, styled } from '@mui/material/styles';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import TextField from '@mui/material/TextField';
@@ -367,23 +368,36 @@ const HomePage = () => {
     const [search, setSearch] = useState('');
     const [value, setValue] = useState('NA1');
     const [error, setError] = useState(false);
+    const [loading, setLoading] = useState(false);
     const matches = useMediaQuery('(min-width:650px) and (-webkit-min-device-pixel-ratio: 2)');
+    const history = useHistory()
     const updateSearch = (e) => {
         setSearch(e.target.value);
     };
 
     const submitForm = async (e) => {
         e.preventDefault();
+        setLoading(true)
         const data = await dispatch(GetStats(search, value));
+        setLoading(false)
         if (data) {
             setError(true)
         }
         else {
             setError(false)
+            return history.push(`/${search}`)
         }
     };
     return (
         <div id='homePageContainer'>
+            {loading ?
+                <div id='loadingScreen'>
+                    <div id='loadingGif'>
+
+                    </div>
+                </div>
+                :
+                <></>}
             <div id='imgContainer'>
                 <div id='img'>
 
