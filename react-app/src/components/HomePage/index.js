@@ -385,7 +385,7 @@ const HomePage = () => {
         }
         else {
             setError(false)
-            return history.push(`/${search}`)
+            return history.push(`/${value}/${search}`)
         }
     };
     return (

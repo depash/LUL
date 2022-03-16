@@ -37,7 +37,7 @@ function App() {
         <ProtectedRoute path='/' exact={true} >
           <HomePage />
         </ProtectedRoute>
-        <ProtectedRoute path='/:userName' exact={true} >
+        <ProtectedRoute path='/:region/:userName' exact={true} >
           <UserPage />
         </ProtectedRoute>
       </Switch>

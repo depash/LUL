@@ -16,7 +16,20 @@ const UserPage = () => {
             }}>
             </div> */}
             <div id='banner'>
+                <div>
+                    <div>
+                        <div id='bannerProfPic'>
 
+                        </div>
+                        <div id='sumLvl'>
+                            <span>100</span>
+                        </div>
+                    </div>
+                    <div id='bannerSumName'>
+                        <h1>SumName</h1>
+
+                    </div>
+                </div>
             </div>
             <div id='rankDisplayAndGamesContainer'>
                 <div id='rankDisplay'>
