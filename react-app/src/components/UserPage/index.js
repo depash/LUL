@@ -17,17 +17,15 @@ const UserPage = () => {
             </div> */}
             <div id='banner'>
                 <div>
-                    <div>
+                    <div id='PicAndLvl'>
                         <div id='bannerProfPic'>
-
-                        </div>
-                        <div id='sumLvl'>
-                            <span>100</span>
+                            <div id='sumLvl'>
+                                <span>100</span>
+                            </div>
                         </div>
                     </div>
                     <div id='bannerSumName'>
                         <h1>SumName</h1>
-
                     </div>
                 </div>
             </div>
