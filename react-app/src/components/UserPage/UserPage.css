@@ -20,16 +20,19 @@
     height: 30%;
     width: 100%;
     align-items: center;
-    margin-left: 215px;
 }
 #banner > div{
     display: flex;
     column-gap: 22px;
+    margin-left: 110px;
 }
 #PicAndLvl{
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+#bannerSumName > h1{
+    margin: 0;
 }
 #bannerProfPic{
     display: flex;
