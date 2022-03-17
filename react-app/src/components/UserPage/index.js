@@ -35,10 +35,20 @@ const UserPage = () => {
             <div id='rankDisplayAndGamesContainer'>
                 <div id='rankDisplay'>
                     <div className='RankContainer'>
+                        <div className='RankImage'>
 
+                        </div>
+                        <div className='RankInfo'>
+
+                        </div>
                     </div>
                     <div className='RankContainer'>
+                        <div className='RankImage'>
 
+                        </div>
+                        <div className='RankInfo'>
+
+                        </div>
                     </div>
                 </div>
                 <div id='gamesContainer'>
