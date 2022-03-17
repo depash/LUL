@@ -15,6 +15,9 @@ const UserPage = () => {
                 backgroundImage: `url("http://ddragon.leagueoflegends.com/cdn/12.5.1/img/profileicon/${userData.profileIconId}.png")`
             }}>
             </div> */}
+            <div id='background'>
+
+            </div>
             <div id='banner'>
                 <div>
                     <div id='PicAndLvl'>
@@ -31,7 +34,12 @@ const UserPage = () => {
             </div>
             <div id='rankDisplayAndGamesContainer'>
                 <div id='rankDisplay'>
+                    <div className='RankContainer'>
 
+                    </div>
+                    <div className='RankContainer'>
+
+                    </div>
                 </div>
                 <div id='gamesContainer'>
 

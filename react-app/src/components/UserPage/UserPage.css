@@ -1,12 +1,11 @@
 #userPageContainer{
-    height: calc(100vh - 50px);
-    width: 100vw;
     background-color: #5383e8;
     background-size: cover;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
+    row-gap: 20px;
 }
 #bannerProfPic{
     width: 100px;
@@ -17,14 +16,14 @@
 }
 #banner{
     display: flex;
-    height: 30%;
+    height: 300px;
     width: 100%;
     align-items: center;
 }
 #banner > div{
     display: flex;
     column-gap: 22px;
-    margin-left: 110px;
+    margin-left: 45px;
 }
 #PicAndLvl{
     display: flex;
@@ -41,9 +40,8 @@
 }
 #sumLvl{
     width: 37px;
-    height: 30px;
     padding-top: 3px;
-    box-sizing: border-box;
+    position: absolute;
     background: url('https://s-lol-web.op.gg/static/images/site/summoner/bg-levelbox.png');
     background-size: 100%;
     background-repeat: no-repeat;
@@ -60,14 +58,34 @@
     width: 100%;
     display: flex;
 }
-#rankDisplay{
-    height: 100%;
-    width: 30%;
-}
 #gamesContainer{
     height: 100%;
     width: 70%;
 }
 #sumLvl{
 
+}
+#rankDisplay{
+    height: 100%;
+    width: 360px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 5vh;
+}
+#gamesContainer{
+    width: 750px;
+}
+.RankContainer{
+    width: 315px;
+    height: 170px;
+    background-color: #f2f2f2;
+}
+#background{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: #5383e8;
 }
