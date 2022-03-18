@@ -268,7 +268,7 @@ const UserPage = () => {
                                     {'Level ' + findParticipant(match.participants).champLevel}
                                 </div>
                                 <div className='CS'>
-                                    110 (2.7)CS
+                                    {findParticipant(match.participants).totalMinionsKilled + ' '}CS
                                 </div>
                                 <div className='dmgDelt'>
                                     {'Damage ' + findParticipant(match.participants).totalDamageDealt}
