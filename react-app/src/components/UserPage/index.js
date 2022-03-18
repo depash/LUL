@@ -276,35 +276,38 @@ const UserPage = () => {
                             </div>
                             <div className='items'>
                                 <div className='ItemsContainer'>
-                                    <div className='Item' style={{
-                                        backgroundImage: `url("http://ddragon.leagueoflegends.com/cdn/12.5.1/img/item/${findParticipant(match.participants).item0}.png")`
-                                    }}>
+                                    <div>
+                                        <div className='Item' style={{
+                                            backgroundImage: `url("http://ddragon.leagueoflegends.com/cdn/12.5.1/img/item/${findParticipant(match.participants).item0}.png")`
+                                        }}>
 
+                                        </div>
+                                        <div className='Item' style={{
+                                            backgroundImage: `url("http://ddragon.leagueoflegends.com/cdn/12.5.1/img/item/${findParticipant(match.participants).item1}.png")`
+                                        }}>
+
+                                        </div>
+                                        <div className='Item' style={{
+                                            backgroundImage: `url("http://ddragon.leagueoflegends.com/cdn/12.5.1/img/item/${findParticipant(match.participants).item2}.png")`
+                                        }}>
+                                        </div>
                                     </div>
-                                    <div className='Item' style={{
-                                        backgroundImage: `url("http://ddragon.leagueoflegends.com/cdn/12.5.1/img/item/${findParticipant(match.participants).item1}.png")`
-                                    }}>
+                                    <div>
+                                        <div className='Item' style={{
+                                            backgroundImage: `url("http://ddragon.leagueoflegends.com/cdn/12.5.1/img/item/${findParticipant(match.participants).item3}.png")`
+                                        }}>
 
-                                    </div>
-                                    <div className='Item' style={{
-                                        backgroundImage: `url("http://ddragon.leagueoflegends.com/cdn/12.5.1/img/item/${findParticipant(match.participants).item2}.png")`
-                                    }}>
+                                        </div>
+                                        <div className='Item' style={{
+                                            backgroundImage: `url("http://ddragon.leagueoflegends.com/cdn/12.5.1/img/item/${findParticipant(match.participants).item4}.png")`
+                                        }}>
 
-                                    </div>
-                                    <div className='Item' style={{
-                                        backgroundImage: `url("http://ddragon.leagueoflegends.com/cdn/12.5.1/img/item/${findParticipant(match.participants).item3}.png")`
-                                    }}>
+                                        </div>
+                                        <div className='Item' style={{
+                                            backgroundImage: `url("http://ddragon.leagueoflegends.com/cdn/12.5.1/img/item/${findParticipant(match.participants).item5}.png")`
+                                        }}>
 
-                                    </div>
-                                    <div className='Item' style={{
-                                        backgroundImage: `url("http://ddragon.leagueoflegends.com/cdn/12.5.1/img/item/${findParticipant(match.participants).item4}.png")`
-                                    }}>
-
-                                    </div>
-                                    <div className='Item' style={{
-                                        backgroundImage: `url("http://ddragon.leagueoflegends.com/cdn/12.5.1/img/item/${findParticipant(match.participants).item5}.png")`
-                                    }}>
-
+                                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -175,14 +175,24 @@
 }
 .ItemsContainer{
     width: 100%;
-    height: 50%;
+    height: 100%;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
+}
+.ItemsContainer >div:first-child{
+    width: 100%;
+    height: 30%;
+    display: flex;
+}
+.ItemsContainer > div:last-child{
+    width: 100%;
+    height: 30%;
+    display: flex;
 }
 .Item{
     width: 35px;
-    height: 50%;
+    height: 100%;
     background-image: url('http://ddragon.leagueoflegends.com/cdn/12.5.1/img/item/1001.png');
     background-size: 100%;
     margin: 2px;
