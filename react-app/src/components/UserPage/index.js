@@ -127,18 +127,42 @@ const UserPage = () => {
                             </div>
                         </div>
                         <div className='ChampData'>
-                            <div className='champPic'>
+                            <div className='Champimages'>
+                                <div className='champPic'>
 
+                                </div>
+                                <div className='sumSpellContainer'>
+                                    <div className='SumSpell1'>
+
+                                    </div>
+                                    <div className='SumSpell2'>
+
+                                    </div>
+                                </div>
                             </div>
-                            <div className='SumSpell1'>
-
-                            </div>
-                            <div className='SumSpell2'>
-
+                            <div className='Champtext'>
+                                <div className='Text'>
+                                    AAtrox
+                                </div>
                             </div>
                         </div>
-                        <div className='KDA'>
-
+                        <div className='kdaAndRatio'>
+                            <div className='KDA'>
+                                <div>
+                                    0
+                                </div>
+                                /
+                                <div>
+                                    2
+                                </div>
+                                /
+                                <div>
+                                    0
+                                </div>
+                            </div>
+                            <div className='Ratio'>
+                                1.00/1 KDA
+                            </div>
                         </div>
                         <div className='ChampStats'>
 
