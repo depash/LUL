@@ -165,10 +165,34 @@ const UserPage = () => {
                             </div>
                         </div>
                         <div className='ChampStats'>
-
+                            <div className='lvl'>
+                                Level 16
+                            </div>
+                            <div className='CS'>
+                                110 (2.7)CS
+                            </div>
                         </div>
                         <div className='items'>
+                            <div className='ItemsContainer'>
+                                <div className='Item'>
 
+                                </div>
+                                <div className='Item'>
+
+                                </div>
+                                <div className='Item'>
+
+                                </div>
+                                <div className='Item'>
+
+                                </div>
+                                <div className='Item'>
+
+                                </div>
+                                <div className='Item'>
+
+                                </div>
+                            </div>
                         </div>
                         <div className='participants'>
 
