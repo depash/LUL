@@ -195,7 +195,90 @@ const UserPage = () => {
                             </div>
                         </div>
                         <div className='participants'>
+                            <div className='yourTeam'>
+                                <div className='Member'>
+                                    <div className='MemberPic'>
 
+                                    </div>
+                                    <span className='MemberName'>
+                                        WegoBwakWewow
+                                    </span>
+                                </div>
+                                <div className='Member'>
+                                    <div className='MemberPic'>
+
+                                    </div>
+                                    <span className='MemberName'>
+                                        WegoBwakWewow
+                                    </span>
+                                </div>
+                                <div className='Member'>
+                                    <div className='MemberPic'>
+
+                                    </div>
+                                    <span className='MemberName'>
+                                        WegoBwakWewow
+                                    </span>
+                                </div>
+                                <div className='Member'>
+                                    <div className='MemberPic'>
+
+                                    </div>
+                                    <span className='MemberName'>
+                                        WegoBwakWewow
+                                    </span>
+                                </div>
+                                <div className='Member'>
+                                    <div className='MemberPic'>
+
+                                    </div>
+                                    <span className='MemberName'>
+                                        WegoBwakWewow
+                                    </span>
+                                </div>
+                            </div>
+                            <div className='EnemyTeam'>
+                                <div className='Member'>
+                                    <div className='MemberPic'>
+
+                                    </div>
+                                    <span className='MemberName'>
+                                        WegoBwakWewow
+                                    </span>
+                                </div>
+                                <div className='Member'>
+                                    <div className='MemberPic'>
+
+                                    </div>
+                                    <span className='MemberName'>
+                                        WegoBwakWewow
+                                    </span>
+                                </div>
+                                <div className='Member'>
+                                    <div className='MemberPic'>
+
+                                    </div>
+                                    <span className='MemberName'>
+                                        WegoBwakWewow
+                                    </span>
+                                </div>
+                                <div className='Member'>
+                                    <div className='MemberPic'>
+
+                                    </div>
+                                    <span className='MemberName'>
+                                        WegoBwakWewow
+                                    </span>
+                                </div>
+                                <div className='Member'>
+                                    <div className='MemberPic'>
+
+                                    </div>
+                                    <span className='MemberName'>
+                                        WegoBwakWewow
+                                    </span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
