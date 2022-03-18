@@ -123,6 +123,13 @@
     background-color: whitesmoke;
     display: flex;
     align-items: center;
+    margin-bottom: 10px;
+}
+.victoryText{
+    color: #3488bf;
+}
+.defeatText{
+    color: #cd5f5f;
 }
 .Gameinfo{
     width: 10%;
@@ -220,6 +227,12 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+.victory{
+    background-color: #a3cfec;
+}
+.defeat{
+    background-color: #e2b6b3;
 }
 .divider{
     width: 40%;
