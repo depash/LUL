@@ -54,13 +54,8 @@
 
 }
 #rankDisplayAndGamesContainer{
-    height: 70%;
-    width: 100%;
     display: flex;
-}
-#gamesContainer{
-    height: 100%;
-    width: 70%;
+    margin: auto;
 }
 #sumLvl{
 
@@ -86,10 +81,33 @@
 .RankImage{
     width: 40%;
     height: 100%;
+    display: flex;
+    align-items: center;
+}
+.rankPlaceholder{
+    background-image: url('../../images/default.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 70%;
 }
 .RankInfo{
     width: 60%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    row-gap: 5px;
+}
+.RankInfo>span:last-child{
+    font-size: 15px;
+    font-weight: bold;
+    color: #879292;
+}
+.RankInfo>span:first-child{
+    font-size: 11px;
+    color: #879292;
 }
 #background{
     position: absolute;

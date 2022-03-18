@@ -36,18 +36,32 @@ const UserPage = () => {
                 <div id='rankDisplay'>
                     <div className='RankContainer'>
                         <div className='RankImage'>
+                            <div className='rankPlaceholder'>
 
+                            </div>
                         </div>
                         <div className='RankInfo'>
-
+                            <span>
+                                Rank Type
+                            </span>
+                            <span>
+                                Rank
+                            </span>
                         </div>
                     </div>
                     <div className='RankContainer'>
                         <div className='RankImage'>
+                            <div className='rankPlaceholder'>
 
+                            </div>
                         </div>
                         <div className='RankInfo'>
-
+                            <span>
+                                Rank Type
+                            </span>
+                            <span>
+                                Rank
+                            </span>
                         </div>
                     </div>
                 </div>
