@@ -48,29 +48,30 @@
     font-size: 14px;
     text-align: center;
     color: #eabd56;
-    margin-bottom: -2vh;
+    margin-bottom: -10px;
 }
 #sumLvl> span{
 
 }
 #rankDisplayAndGamesContainer{
+    width: 100%;
     display: flex;
-    margin: auto;
-}
-#sumLvl{
-
 }
 #rankDisplay{
     height: 100%;
-    width: 360px;
+    width: 30%;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     row-gap: 5vh;
 }
-#gamesContainer{
-    width: 750px;
+#allGamesContainer{
+    width: 60%;
+    min-width: 750px;
+}
+#sumLvl{
+
 }
 .RankContainer{
     width: 315px;
@@ -101,12 +102,12 @@
     row-gap: 5px;
 }
 .RankInfo>span:last-child{
-    font-size: 15px;
+    font-size: 19px;
     font-weight: bold;
     color: #879292;
 }
 .RankInfo>span:first-child{
-    font-size: 11px;
+    font-size: 17px;
     color: #879292;
 }
 #background{
@@ -116,3 +117,125 @@
     z-index: -1;
     background-color: #5383e8;
 }
+.gameContainer{
+    width: 100%;
+    height: 130px;
+    background-color: whitesmoke;
+    display: flex;
+    align-items: center;
+}
+.Gameinfo{
+    width: 10%;
+    height: 100%;
+}
+.ChampData{
+    width: 15%;
+    height: 100%;
+}
+.KDA{
+    width: 20%;
+    height: 100%;
+}
+.ChampStats{
+    width: 15%;
+    height: 100%;
+}
+.items{
+    width: 20%;
+    height: 100%;
+}
+.participants{
+    width: 20%;
+    height: 100%;
+}
+.gameType{
+
+}
+.whenGameCreated{
+
+}
+.winOrLoss{
+
+}
+.GameLength{
+
+}
+@media (max-width: 1127px){
+    #rankDisplayAndGamesContainer{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        row-gap: 33px;
+        align-items: center;
+    }
+    .rankBody{
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        grid-row-gap: 5vh;
+        grid-row-gap: 5vh;
+        row-gap: 5vh;
+    }
+    #rankDisplay{
+        height: 100%;
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        grid-row-gap: 5vh;
+        row-gap: 5vh;
+    }
+    #allGamesContainer{
+        width: 60%;
+        min-width: 750px;
+        background-color: #879292;
+    }
+    .RankContainer{
+        width: 100%;
+        height: 235px;
+        background-color: #f2f2f2;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .RankImage{
+        width: 30%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+    .gameContainer{
+        width: 100%;
+        height: 130px;
+        background-color: whitesmoke;
+    }
+    .rankPlaceholder{
+        background-image: url('../../images/default.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+    }
+    .RankInfo{
+        width: 60%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        grid-row-gap: 5px;
+        row-gap: 5px;
+    }
+    .RankInfo>span:last-child{
+        font-size: 50px;
+        font-weight: bold;
+        color: #879292;
+    }
+    .RankInfo>span:first-child{
+        font-size: 40px;
+        color: #879292;
+    }
+  }

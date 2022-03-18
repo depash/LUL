@@ -29,6 +29,7 @@ psycopg2-binary = "*"
 email-validator = "*"
 requests = "*"
 datetime = "*"
+riotwatcher = "*"
 
 [dev-packages]
 psycopg2-binary = "==2.8.6"

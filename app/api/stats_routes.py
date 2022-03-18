@@ -11,6 +11,7 @@ import requests
 from datetime import date
 from datetime import timedelta
 from datetime import datetime
+from riotwatcher import LolWatcher, ApiError
 
 session = requests.Session()
 stats_routes = Blueprint('stats', __name__)
@@ -34,7 +35,7 @@ def getting_user():
         return {'errors': 'error message'}, 401
     else:
         user = user_raw.json()
-        return user
+    return user
 
 
 # @stats_routes.route('/<int:region>/<int:name>', methods=['POST'])
