@@ -126,7 +126,11 @@
 }
 .Gameinfo{
     width: 10%;
-    height: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 .ChampData{
     width: 15%;
@@ -148,17 +152,38 @@
     width: 20%;
     height: 100%;
 }
+.divider{
+    width: 40%;
+    height: 2px;
+    background-color: purple;
+    margin: 5px auto;
+}
 .gameType{
-
+    display: flex;
+    height: 18px;
+    width: 100%;
+    justify-content: center;
 }
 .whenGameCreated{
-
+    display: flex;
+    height: 18px;
+    width: 100%;
+    justify-content: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .winOrLoss{
-
+    display: flex;
+    height: 18px;
+    width: 100%;
+    justify-content: center;
 }
 .GameLength{
-
+    display: flex;
+    height: 18px;
+    width: 100%;
+    justify-content: center;
 }
 @media (max-width: 1127px){
     #rankDisplayAndGamesContainer{

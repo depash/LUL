@@ -116,6 +116,9 @@ const UserPage = () => {
                             <div className='whenGameCreated'>
                                 19 days ago
                             </div>
+                            <div className='divider'>
+
+                            </div>
                             <div className='winOrLoss'>
                                 Victory
                             </div>
@@ -124,7 +127,15 @@ const UserPage = () => {
                             </div>
                         </div>
                         <div className='ChampData'>
+                            <div className='champPic'>
 
+                            </div>
+                            <div className='SumSpell1'>
+
+                            </div>
+                            <div className='SumSpell2'>
+
+                            </div>
                         </div>
                         <div className='KDA'>
 
