@@ -238,6 +238,9 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+.MemberName:hover{
+    cursor: pointer;
+}
 .victory{
     background-color: #a3cfec;
 }

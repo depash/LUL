@@ -1,5 +1,5 @@
 import { useMediaQuery } from '@mui/material';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { GetMatches } from '../../store/Stats';
@@ -18,14 +18,17 @@ const UserPage = () => {
     const dispatch = useDispatch()
     const history = useHistory();
     const matches = useMediaQuery('(min-width:1127px)');
+    const [loading, setLoading] = useState(false);
     // window.location.reload(history.push("/"));
     const params = useParams();
     useEffect(() => {
         async function fetchData() {
+            setLoading(true)
             await dispatch(GetMatches(params.userName, params.region))
+            setLoading(false)
         }
         fetchData()
-    }, [])
+    }, [params])
     const getTimeSince = (match) => {
         const date = new Date(match.gameCreaton);
         var seconds = Math.floor((new Date() - date) / 1000);
@@ -59,6 +62,7 @@ const UserPage = () => {
             }
         }
     }
+
     const idToSpellName = (id) => {
         if (id === 21) {
             return 'Barrier'
@@ -91,8 +95,21 @@ const UserPage = () => {
             return 'Teleport'
         }
     }
+    const redirect = (e) => {
+        const username = e.target.innerText
+        history.push(`/${params.region}/${username}`)
+        window.location.reload(false);
+    }
     return (
         <div id='userPageContainer'>
+            {loading ?
+                <div id='loadingScreen'>
+                    <div id='loadingGif'>
+
+                    </div>
+                </div>
+                :
+                <></>}
             {/* <div id='profileIcon' style={{
                 backgroundImage: `url("http://ddragon.leagueoflegends.com/cdn/12.5.1/img/profileicon/${userData.profileIconId}.png")`
             }}>
@@ -319,7 +336,7 @@ const UserPage = () => {
                                         }}>
 
                                         </div>
-                                        <span className='MemberName'>
+                                        <span className='MemberName' onClick={(e) => { redirect(e) }}>
                                             {match.participants[0].summonerName}
                                         </span>
                                     </div>
@@ -329,7 +346,7 @@ const UserPage = () => {
                                         }}>
 
                                         </div>
-                                        <span className='MemberName'>
+                                        <span className='MemberName' onClick={(e) => { redirect(e) }}>
                                             {match.participants[1].summonerName}
                                         </span>
                                     </div>
@@ -339,7 +356,7 @@ const UserPage = () => {
                                         }}>
 
                                         </div>
-                                        <span className='MemberName'>
+                                        <span className='MemberName' onClick={(e) => { redirect(e) }}>
                                             {match.participants[2].summonerName}
                                         </span>
                                     </div>
@@ -349,7 +366,7 @@ const UserPage = () => {
                                         }}>
 
                                         </div>
-                                        <span className='MemberName'>
+                                        <span className='MemberName' onClick={(e) => { redirect(e) }}>
                                             {match.participants[3].summonerName}
                                         </span>
                                     </div>
@@ -359,7 +376,7 @@ const UserPage = () => {
                                         }}>
 
                                         </div>
-                                        <span className='MemberName'>
+                                        <span className='MemberName' onClick={(e) => { redirect(e) }}>
                                             {match.participants[4].summonerName}
                                         </span>
                                     </div>
@@ -371,7 +388,7 @@ const UserPage = () => {
                                         }}>
 
                                         </div>
-                                        <span className='MemberName'>
+                                        <span className='MemberName' onClick={(e) => { redirect(e) }}>
                                             {match.participants[5].summonerName}
                                         </span>
                                     </div>
@@ -381,7 +398,7 @@ const UserPage = () => {
                                         }}>
 
                                         </div>
-                                        <span className='MemberName'>
+                                        <span className='MemberName' onClick={(e) => { redirect(e) }}>
                                             {match.participants[6].summonerName}
                                         </span>
                                     </div>
@@ -391,7 +408,7 @@ const UserPage = () => {
                                         }}>
 
                                         </div>
-                                        <span className='MemberName'>
+                                        <span className='MemberName' onClick={(e) => { redirect(e) }}>
                                             {match.participants[7].summonerName}
                                         </span>
                                     </div>
@@ -401,7 +418,7 @@ const UserPage = () => {
                                         }}>
 
                                         </div>
-                                        <span className='MemberName'>
+                                        <span className='MemberName' onClick={(e) => { redirect(e) }}>
                                             {match.participants[8].summonerName}
                                         </span>
                                     </div>
@@ -411,7 +428,7 @@ const UserPage = () => {
                                         }}>
 
                                         </div>
-                                        <span className='MemberName'>
+                                        <span className='MemberName' onClick={(e) => { redirect(e) }}>
                                             {match.participants[9].summonerName}
                                         </span>
                                     </div>
