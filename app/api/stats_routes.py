@@ -64,7 +64,7 @@ def getting_stats():
             region_2 = 'asia'
         formated_user = user_raw.json()
         puuid = formated_user['puuid']
-        url = f'https://{region_2}.api.riotgames.com/lol/match/v5/matches/by-puuid/{puuid}/ids?type=normal&start=0&count=10'
+        url = f'https://{region_2}.api.riotgames.com/lol/match/v5/matches/by-puuid/{puuid}/ids?start=0&count=10'
         all_matches_raw = session.get(url,
                                       headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 OPR/84.0.4316.21",
                                                "Accept-Language": "en-US,en;q=0.9",
@@ -113,4 +113,13 @@ def getting_stats():
                                                  }for participant in participants]})
             # http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg
             # http://ddragon.leagueoflegends.com/cdn/12.5.1/img/champion/Aatrox.png
-        return {'user': formated_user, 'matches': match_data}
+        sum_id = formated_user['id']
+        url = f'https://{region}.api.riotgames.com/lol/league/v4/entries/by-summoner/{sum_id}'
+        Ranked_info_raw = session.get(url,
+                                      headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 OPR/84.0.4316.21",
+                                               "Accept-Language": "en-US,en;q=0.9",
+                                               "Accept-Charset": "application/x-www-form-urlencoded; charset=UTF-8",
+                                               "Origin": "https://developer.riotgames.com",
+                                               "X-Riot-Token": key})
+        Ranked_info = Ranked_info_raw.json()
+        return {'user': formated_user, 'matches': match_data, "Ranked_info": Ranked_info}

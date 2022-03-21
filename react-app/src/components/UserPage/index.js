@@ -193,7 +193,7 @@ const UserPage = () => {
                 </div>
                 <div id='allGamesContainer'>
                     {matchData && matchData.map((match, i) => (
-                        <div className='gameContainer victory'>
+                        match.gameMode !== "PRACTICETOOL" && <div className='gameContainer victory'>
                             <div className='Gameinfo'>
                                 <div className='gameType'>
                                     {match.gameMode}
