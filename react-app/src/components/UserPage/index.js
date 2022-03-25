@@ -128,7 +128,9 @@ const UserPage = () => {
                             backgroundImage: `url("http://ddragon.leagueoflegends.com/cdn/12.5.1/img/profileicon/${userData && userData.profileIconId}.png")`
                         }}>
                             <div id='sumLvl'>
-                                <span>100</span>
+                                <span>
+                                    {userData && userData.summonerLevel}
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -218,7 +220,7 @@ const UserPage = () => {
                 </div>
                 <div id='allGamesContainer'>
                     {matchData && matchData.map((match, i) => (
-                        match.gameMode !== "PRACTICETOOL" && <div className='gameContainer victory'>
+                        match.gameMode !== "PRACTICETOOL" && <div className={findParticipant(match.participants).win ? `gameContainer victory` : `gameContainer defeat`}>
                             <div className='Gameinfo'>
                                 <div className='gameType'>
                                     {match.gameMode}
@@ -229,7 +231,7 @@ const UserPage = () => {
                                 <div className='divider'>
 
                                 </div>
-                                {match.participants[0].win ?
+                                {findParticipant(match.participants).win ?
                                     <div className='winOrLoss victoryText'>
                                         victory
                                     </div>

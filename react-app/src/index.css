@@ -53,7 +53,7 @@ body{
         width: 926px;
         height: 1020px;
         background-color: rgb(9 44 58);
-        border: 2px solid rgb(6 28 37);
+        border: 5px solid rgb(6 28 37);
         justify-content: center;
     }
     #Login{
@@ -64,7 +64,7 @@ body{
         width: 862px;
         height: 736px;
         background-color: rgb(9 44 58);
-        border: 2px solid rgb(6 28 37);
+        border: 5px solid rgb(6 28 37);
         justify-content: center;
     }
     #Login > button{
