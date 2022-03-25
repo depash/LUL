@@ -16,6 +16,7 @@ const UserPage = () => {
     const userData = useSelector(state => state.stats.user)
     const matchData = useSelector(state => state.stats.matches)
     const rankedData = useSelector(state => state.stats.ranked_stats)
+    const rankDataFlex = useSelector(state => state.stats.ranked_stats_flex)
     const dispatch = useDispatch()
     const history = useHistory();
     const matches = useMediaQuery('(min-width:1127px)');
@@ -93,6 +94,9 @@ const UserPage = () => {
         }
         if (id === 12) {
             return 'Teleport'
+        }
+        if (id === 32) {
+            return 'Snowball'
         }
     }
     const redirect = (e) => {
@@ -178,7 +182,7 @@ const UserPage = () => {
                         <>
                             <div className='RankContainer'>
                                 <div className='RankImage'>
-                                    {rankedData !== [] ? <div className='rankPlaceholder'>
+                                    {rankedData && rankedData.summonerName ? <div className={`${rankedData && ((rankedData?.tier).toLowerCase()).charAt(0).toUpperCase() + ((rankedData?.tier).toLowerCase()).slice(1)}`}>
 
                                     </div> : <div className='rankPlaceholder'>
 
@@ -189,22 +193,24 @@ const UserPage = () => {
                                         Ranked Solo
                                     </span>
                                     <span>
-                                        {/* {rankedData && rankedData !== [] ? ((rankedData[0]?.tier).toLowerCase()).charAt(0).toUpperCase() + ((rankedData[0]?.tier).toLowerCase()).slice(1) + " " + rankedData[0]?.rank : <></>} */}
+                                        {rankedData && rankedData.summonerName ? ((rankedData?.tier).toLowerCase()).charAt(0).toUpperCase() + ((rankedData?.tier).toLowerCase()).slice(1) + " " + rankedData?.rank : 'Unraked'}
                                     </span>
                                 </div>
                             </div>
                             <div className='RankContainer'>
                                 <div className='RankImage'>
-                                    <div className='rankPlaceholder'>
+                                    {rankDataFlex && rankDataFlex.summonerName ? <div className={`${rankDataFlex && ((rankDataFlex?.tier).toLowerCase()).charAt(0).toUpperCase() + ((rankDataFlex?.tier).toLowerCase()).slice(1)}`}>
 
-                                    </div>
+                                    </div> : <div className='rankPlaceholder'>
+
+                                    </div>}
                                 </div>
                                 <div className='RankInfo'>
                                     <span>
-                                        Rank Type
+                                        Ranked Flex
                                     </span>
                                     <span>
-                                        Rank
+                                        {rankDataFlex && rankDataFlex.summonerName ? ((rankDataFlex?.tier).toLowerCase()).charAt(0).toUpperCase() + ((rankDataFlex?.tier).toLowerCase()).slice(1) + " " + rankDataFlex?.rank : 'Unraked'}
                                     </span>
                                 </div>
                             </div>

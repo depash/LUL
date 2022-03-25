@@ -71,6 +71,7 @@
     min-width: 750px;
     padding: 18px;
     background-color: whitesmoke;
+    margin-bottom: 55px;
 }
 #sumLvl{
 
@@ -86,6 +87,7 @@
     height: 100%;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 .rankPlaceholder{
     background-image: url('../../images/default.png');
@@ -93,6 +95,69 @@
     background-repeat: no-repeat;
     width: 100%;
     height: 70%;
+}
+.Bronze{
+    background-image: url('../../images/ranked-emblems/Emblem_Bronze.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 80%;
+    height: 60%;
+}
+.Challenger{
+    background-image: url('../../images/ranked-emblems/Emblem_Challenger.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 80%;
+    height: 60%;
+}
+.Diamond{
+    background-image: url('../../images/ranked-emblems/Emblem_Diamond.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 80%;
+    height: 60%;
+}
+.Gold{
+    background-image: url('../../images/ranked-emblems/Emblem_Gold.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 80%;
+    height: 60%;
+}
+.GrandMaster{
+    background-image: url('../../images/ranked-emblems/Emblem_Grandmaster.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 80%;
+    height: 60%;
+}
+.Iron{
+    background-image: url('../../images/ranked-emblems/Emblem_Iron.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 80%;
+    height: 60%;
+}
+.Master{
+    background-image: url('../../images/ranked-emblems/Emblem_Master.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 80%;
+    height: 60%;
+}
+.Platinum{
+    background-image: url('../../images/ranked-emblems/Emblem_Platinum.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 80%;
+    height: 60%;
+}
+.Silver{
+    background-image: url('../../images/ranked-emblems/Emblem_Silver.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 80%;
+    height: 60%;
 }
 .RankInfo{
     width: 60%;

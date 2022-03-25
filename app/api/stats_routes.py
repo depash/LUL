@@ -116,5 +116,12 @@ def getting_stats():
             # http://ddragon.leagueoflegends.com/cdn/12.5.1/img/champion/Aatrox.png
 
         ranked_stats = watcher.league.by_summoner(region, formated_user['id'])
-        print(ranked_stats)
-        return {'user': formated_user, 'matches': match_data, 'ranked_stats': ranked_stats}
+        flexStats = {}
+        soloStats = {}
+        if (len(ranked_stats)):
+            for i, stats in enumerate(ranked_stats):
+                if stats['queueType'] == 'RANKED_FLEX_SR':
+                    flexStats = ranked_stats[i]
+                if stats['queueType'] == 'RANKED_SOLO_5x5':
+                    soloStats = ranked_stats[i]
+        return {'user': formated_user, 'matches': match_data, 'ranked_stats': soloStats, 'ranked_stats_flex': flexStats}
