@@ -43,6 +43,7 @@ def getting_user():
 def getting_stats():
     data = request.json
     key = os.environ.get('API_KEY')
+    watcher = LolWatcher(key)
     name = data['name']
     region = data['region']
     url = f'https://{region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/{name}'
@@ -113,6 +114,7 @@ def getting_stats():
                                                  }for participant in participants]})
             # http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg
             # http://ddragon.leagueoflegends.com/cdn/12.5.1/img/champion/Aatrox.png
-        sum_id = formated_user['id']
-        url = f'https://{region}.api.riotgames.com/lol/league/v4/entries/by-summoner/{sum_id}'
-        return {'user': formated_user, 'matches': match_data}
+
+        ranked_stats = watcher.league.by_summoner(region, formated_user['id'])
+        print(ranked_stats)
+        return {'user': formated_user, 'matches': match_data, 'ranked_stats': ranked_stats}

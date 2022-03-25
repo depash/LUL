@@ -72,3 +72,9 @@ def react_root(path):
     if path == 'favicon.ico':
         return app.send_static_file('favicon.ico')
     return app.send_static_file('index.html')
+
+
+@app.route('/images/ranked-emblems/<string:rank>')
+def react_images(rank):
+    print(rank)
+    return app.send_static_file(f'{rank}.png')

@@ -15,6 +15,7 @@ const timeAgo = new TimeAgo('en-US')
 const UserPage = () => {
     const userData = useSelector(state => state.stats.user)
     const matchData = useSelector(state => state.stats.matches)
+    const rankedData = useSelector(state => state.stats.ranked_stats)
     const dispatch = useDispatch()
     const history = useHistory();
     const matches = useMediaQuery('(min-width:1127px)');
@@ -62,7 +63,6 @@ const UserPage = () => {
             }
         }
     }
-
     const idToSpellName = (id) => {
         if (id === 21) {
             return 'Barrier'
@@ -146,12 +146,12 @@ const UserPage = () => {
                                 <div className='rankBody'>
                                     <div className='RankImage'>
                                         <div className='rankPlaceholder'>
-
+                                            Ranked Solo
                                         </div>
                                     </div>
                                     <div className='RankInfo'>
                                         <span>
-                                            Rank
+
                                         </span>
                                     </div>
                                 </div>
@@ -178,16 +178,18 @@ const UserPage = () => {
                         <>
                             <div className='RankContainer'>
                                 <div className='RankImage'>
-                                    <div className='rankPlaceholder'>
+                                    {rankedData !== [] ? <div className='rankPlaceholder'>
 
-                                    </div>
+                                    </div> : <div className='rankPlaceholder'>
+
+                                    </div>}
                                 </div>
                                 <div className='RankInfo'>
                                     <span>
-                                        Rank Type
+                                        Ranked Solo
                                     </span>
                                     <span>
-                                        Rank
+                                        {/* {rankedData && rankedData !== [] ? ((rankedData[0]?.tier).toLowerCase()).charAt(0).toUpperCase() + ((rankedData[0]?.tier).toLowerCase()).slice(1) + " " + rankedData[0]?.rank : <></>} */}
                                     </span>
                                 </div>
                             </div>
