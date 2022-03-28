@@ -69,7 +69,7 @@ const UserPage = () => {
             return 'Barrier'
         }
         if (id === 1) {
-            return 'Cleanse'
+            return 'Boost'
         }
         if (id === 14) {
             return 'Dot'
