@@ -70,7 +70,12 @@ const statsReducer = function reducer(state = initialState, action) {
         case SET_STATS:
             return action.payload
         case SET_MATCHES:
-            return action.payload
+            return {
+                user: action.payload.user,
+                matches: action.payload.matches,
+                ranked_stats: action.payload.ranked_stats,
+                ranked_stats_flex: action.payload.ranked_stats_flex
+            }
         default:
             return state;
     }
