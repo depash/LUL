@@ -6,7 +6,7 @@ const getRotation = (stats) => ({
 });
 
 export const GettingRotation = () => async (dispatch) => {
-    const response = await fetch('/api/stats/matches', {
+    const response = await fetch('/api/stats/rotation', {
         headers: {
             'Content-Type': 'application/json'
         }

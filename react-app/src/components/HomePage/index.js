@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { alpha, styled } from '@mui/material/styles';
@@ -11,6 +11,7 @@ import OptionUnstyled, { optionUnstyledClasses } from '@mui/base/OptionUnstyled'
 import { PopperUnstyled } from '@mui/base';
 import './HomePage.css'
 import { GetStats } from '../../store/Stats';
+import { GettingRotation } from '../../store/rotation';
 
 
 const CssTextField = styled(TextField)({
@@ -375,6 +376,12 @@ const HomePage = () => {
         setSearch(e.target.value);
     };
 
+    useEffect(() => {
+        function fetchData() {
+            dispatch(GettingRotation())
+        }
+        fetchData()
+    }, [])
     const submitForm = async (e) => {
         e.preventDefault();
         setLoading(true)
@@ -461,7 +468,7 @@ const HomePage = () => {
                 </form>
             </div >
             <div id='WeeklyRotationContainer'>
-                    
+
             </div>
         </div >
     );

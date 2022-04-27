@@ -6,7 +6,7 @@ import rotationReducer from './rotation';
 const rootReducer = combineReducers({
   session,
   stats: statsReducer,
-  roration: rootReducer
+  roration: rotationReducer
 });
 
 
