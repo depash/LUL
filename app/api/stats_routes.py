@@ -17,6 +17,12 @@ session = requests.Session()
 stats_routes = Blueprint('stats', __name__)
 
 
+@stats_routes.route('/rotation', methods=['GET'])
+@login_required
+def get_rotation():
+    url = ''
+
+
 @stats_routes.route('/', methods=['POST'])
 @login_required
 def getting_user():

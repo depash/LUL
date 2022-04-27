@@ -1,4 +1,4 @@
-#homePageContainer{
+#homePageContainer {
     height: calc(100vh - 50px);
     width: 100vw;
     background-color: #5383e8;
@@ -8,14 +8,16 @@
     justify-content: center;
     flex-direction: column;
 }
-.searchAndRegionSelectContaienr{
+
+.searchAndRegionSelectContaienr {
     display: flex;
     background-color: white;
     padding: 8px;
     border-radius: 5px;
     align-items: center;
 }
-.searchAndRegionSelectContaienrError{
+
+.searchAndRegionSelectContaienrError {
     display: flex;
     background-color: white;
     padding: 8px;
@@ -23,41 +25,49 @@
     border-radius: 5px;
     align-items: center;
 }
-#regions{
+
+#regions {
     border: none;
     background-color: blue;
 }
-#formContainer{
+
+#formContainer {
     display: flex;
     height: 60%;
     width: 100%;
     align-items: flex-start;
     justify-content: center;
 }
-#imgContainer{
+
+#imgContainer {
     display: flex;
     height: 40%;
     width: 100%;
     align-items: flex-end;
     justify-content: center;
 }
-#img{
+
+#img {
     background-image: url(../../images/Daco_5184114.png);
     background-size: cover;
     width: 474px;
     height: 245px;
 }
-#loadingScreen{
+
+#loadingScreen {
     position: absolute;
-    width: 100%;
-    height: calc(100vh - 50px);
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 2;
     background-color: #72727266;
 }
-#loadingGif{
+
+#loadingGif {
     width: 180px;
     height: 100px;
     background-image: url(../../images/loading2.gif);
@@ -65,7 +75,8 @@
     background-repeat: no-repeat;
     z-index: 2;
 }
-#WeeklyRotationContainer{
+
+#WeeklyRotationContainer {
     background-color: whitesmoke;
     width: 400px;
     height: 200px;
