@@ -2,9 +2,11 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import session from './session'
 import statsReducer from './Stats'
+import rotationReducer from './rotation';
 const rootReducer = combineReducers({
   session,
-  stats: statsReducer
+  stats: statsReducer,
+  roration: rootReducer
 });
 
 

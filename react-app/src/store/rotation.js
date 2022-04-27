@@ -25,3 +25,13 @@ export const GetMatches = (name, region) => async (dispatch) => {
         return ['An error occurred. Please try again.']
     }
 }
+
+const rotationReducer = function reducer(state = initialState, action) {
+    switch (action.type) {
+        case SET_STATS:
+            return action.payload
+        default:
+            return state;
+    }
+}
+export default rotationReducer
