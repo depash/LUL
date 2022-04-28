@@ -20,7 +20,16 @@ stats_routes = Blueprint('stats', __name__)
 @stats_routes.route('/rotation', methods=['GET'])
 @login_required
 def get_rotation():
-    url = ''
+    url = f'https://{region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/{name}'
+    user_raw = session.get(url,
+                           headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 OPR/84.0.4316.21",
+                                    "Accept-Language": "en-US,en;q=0.9",
+                                    "Accept-Charset": "application/x-www-form-urlencoded; charset=UTF-8",
+                                    "Origin": "https://developer.riotgames.com",
+                                    "X-Riot-Token": key})
+
+    user = user_raw.json()
+    return user
 
 
 @stats_routes.route('/', methods=['POST'])
