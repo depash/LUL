@@ -57,15 +57,10 @@
 #loadingScreen {
     position: absolute;
     top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
-    background-color: #72727266;
+    animation: normal;
 }
+
+
 
 #loadingGif {
     width: 180px;
